@@ -70,6 +70,7 @@ const Home = () => {
   }, [])
 
   const currentSlide = heroSlides[activeSlide]
+  const marqueeCategories = [...categories, ...categories]
 
   return (
     <main>
@@ -129,21 +130,26 @@ const Home = () => {
           <h2 className="mt-2 text-2xl font-extrabold text-gray-900 sm:text-3xl">Explore our wholesale collection</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-500 sm:text-base">A broad selection of fashion essentials for men, women, kids and accessories.</p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {categories.map((category) => (
-              <div key={category.title} className="overflow-hidden rounded-xl border border-gray-100 bg-gray-50 transition hover:-translate-y-1 hover:shadow-lg">
-                <div className="relative h-48 overflow-hidden">
-                  <img src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-300 hover:scale-105" />
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald-700 p-2.5 text-2xl text-white shadow-md">
-                    {category.icon}
+          <div className="mt-10 overflow-hidden">
+            <div className="marquee-track flex w-max gap-6 pr-6">
+              {marqueeCategories.map((category, index) => (
+                <div
+                  key={`${category.title}-${index}`}
+                  className="w-[220px] shrink-0 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 transition hover:-translate-y-1 hover:shadow-lg sm:w-[240px] lg:w-[260px]"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-300 hover:scale-105" />
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald-700 p-2.5 text-2xl text-white shadow-md">
+                      {category.icon}
+                    </div>
+                  </div>
+                  <div className="p-5 text-center">
+                    <h3 className="font-bold text-gray-900">{category.title}</h3>
+                    <p className="mt-1 text-xs text-gray-500">{category.description}</p>
                   </div>
                 </div>
-                <div className="p-5 text-center">
-                  <h3 className="font-bold text-gray-900">{category.title}</h3>
-                  <p className="mt-1 text-xs text-gray-500">{category.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

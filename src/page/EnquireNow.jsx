@@ -1,164 +1,100 @@
-import { useState } from "react";
+import React from 'react';
 
 const EnquireNow = () => {
-  const [step, setStep] = useState(1);
-  const [form, setForm] = useState({
-    name: '',
-    businessName: '',
-    email: '',
-    phone: '',
-    requirements: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Enquiry Submitted:', form);
-    setSubmitted(true);
-  };
-
-  const renderStep = () => {
-    switch (step) {
-      case 1:
-        return (
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800">Step 1: Your Details</h3>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <input name="name" value={form.name} onChange={handleChange} className="rounded-md border-gray-300 px-4 py-3 text-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Your Name" />
-              <input name="businessName" value={form.businessName} onChange={handleChange} className="rounded-md border-gray-300 px-4 py-3 text-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Business Name" />
-            </div>
-            <div className="mt-6 flex justify-end">
-              <button onClick={nextStep} className="rounded-md bg-emerald-600 px-5 py-3 text-lg font-semibold text-white transition hover:bg-emerald-700">Next</button>
-            </div>
-          </div>
-        );
-      case 2:
-        return (
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800">Step 2: Contact Information</h3>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <input name="email" type="email" value={form.email} onChange={handleChange} className="rounded-md border-gray-300 px-4 py-3 text-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Email Address" />
-              <input name="phone" value={form.phone} onChange={handleChange} className="rounded-md border-gray-300 px-4 py-3 text-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Phone Number" />
-            </div>
-            <div className="mt-6 flex justify-between">
-              <button onClick={prevStep} className="rounded-md bg-gray-200 px-5 py-3 text-lg font-semibold text-gray-700 transition hover:bg-gray-300">Back</button>
-              <button onClick={nextStep} className="rounded-md bg-emerald-600 px-5 py-3 text-lg font-semibold text-white transition hover:bg-emerald-700">Next</button>
-            </div>
-          </div>
-        );
-      case 3:
-        return (
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800">Step 3: Your Requirements</h3>
-            <textarea name="requirements" value={form.requirements} onChange={handleChange} className="mt-4 min-h-[140px] w-full rounded-md border-gray-300 px-4 py-3 text-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Tell us about your product needs, desired quantity, and target delivery timeline." />
-            <div className="mt-6 flex justify-between">
-              <button onClick={prevStep} className="rounded-md bg-gray-200 px-5 py-3 text-lg font-semibold text-gray-700 transition hover:bg-gray-300">Back</button>
-              <button type="submit" className="rounded-md bg-emerald-800 px-5 py-3 text-lg font-semibold text-white transition hover:bg-emerald-900">Submit Enquiry</button>
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <main className="bg-white">
-      <div className="bg-[linear-gradient(135deg,_#ecfdf5_0%,_#f8fff9_50%,_#fef3c7_100%)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 text-center sm:py-24 lg:py-28">
-          <p className="text-base font-semibold uppercase tracking-[0.3em] text-emerald-700">Enquire Now</p>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Let’s Source Your Perfect Collection</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
-            Share your requirements with us and our team will guide you with tailored pricing, availability, and delivery options.
+    <div className="bg-white text-gray-800">
+      {/* Hero Section */}
+      <div className="relative bg-emerald-800 text-white">
+        <div className="absolute inset-0">
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=1974&auto=format&fit=crop"
+            alt="Fashion workshop"
+          />
+          <div className="absolute inset-0 bg-emerald-900 opacity-60"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 py-24 text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Enquire With Us</h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+            Let's start a conversation. Whether you have a question about our products, need a quote, or want to discuss a partnership, we're here to help.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm">Custom Quotations</span>
-            <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm">Bulk Orders</span>
-            <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm">Fast Support</span>
-          </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-[2rem] bg-gray-50 p-8 shadow-lg ring-1 ring-gray-100">
-            {submitted ? (
-              <div className="rounded-2xl bg-emerald-100 p-8 text-center">
-                <h2 className="text-3xl font-extrabold text-emerald-800">Thank You!</h2>
-                <p className="mt-4 text-lg text-gray-700">Your enquiry has been received. Our team will review your request and get in touch within 24–48 hours.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                {renderStep()}
-              </form>
-            )}
+      {/* Contact Details Section */}
+      <div className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Get in Touch Directly</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Reach out to us through any of the channels below. We're responsive and ready to assist you.
+            </p>
           </div>
-
-          <div className="rounded-[2rem] bg-emerald-900 p-8 text-white shadow-lg">
-            <h2 className="text-3xl font-bold">What Happens Next?</h2>
-            <p className="mt-4 text-lg text-emerald-100">Our process is simple, transparent, and designed for your convenience.</p>
-            <ul className="mt-8 space-y-6 text-lg">
-              <li className="flex items-start rounded-2xl bg-white/10 p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-700 font-bold">1</span>
-                <div className="ml-4">
-                  <h3 className="font-semibold">Request Review</h3>
-                  <p className="mt-1 text-emerald-200">We assess your needs and match you with suitable wholesale products.</p>
-                </div>
-              </li>
-              <li className="flex items-start rounded-2xl bg-white/10 p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-700 font-bold">2</span>
-                <div className="ml-4">
-                  <h3 className="font-semibold">Pricing & Options</h3>
-                  <p className="mt-1 text-emerald-200">We provide tailored pricing, product options, and wholesale guidance.</p>
-                </div>
-              </li>
-              <li className="flex items-start rounded-2xl bg-white/10 p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-700 font-bold">3</span>
-                <div className="ml-4">
-                  <h3 className="font-semibold">Confirmation</h3>
-                  <p className="mt-1 text-emerald-200">We confirm lead times and delivery details so your order stays smooth.</p>
-                </div>
-              </li>
-            </ul>
-
-            <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-5">
-              <p className="font-semibold">Need direct support?</p>
-              <p className="mt-2 text-sm text-emerald-100">Call us on 07494625582 or email info@greenhousefmltd.com.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="text-4xl text-emerald-600 mb-4">📞</div>
+              <h3 className="text-xl font-bold mb-2">By Phone</h3>
+              <p className="text-lg text-gray-700">07494625582</p>
+              <p className="text-sm text-gray-500 mt-2">Mon-Fri, 9am - 5pm</p>
+            </div>
+            <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="text-4xl text-emerald-600 mb-4">✉️</div>
+              <h3 className="text-xl font-bold mb-2">By Email</h3>
+              <p className="text-lg text-gray-700">info@greenhousefmltd.com</p>
+              <p className="text-sm text-gray-500 mt-2">We reply within 24 hours</p>
+            </div>
+            <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="text-4xl text-emerald-600 mb-4">📍</div>
+              <h3 className="text-xl font-bold mb-2">Our Office</h3>
+              <p className="text-lg text-gray-700">Jolyon House, Amberley Way, Cranford, Hounslow TW4 6BH</p>
+              <p className="text-sm text-gray-500 mt-2">By appointment only</p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* What to Expect Section */}
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Our Enquiry Process</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              We've streamlined our process to ensure you get the information you need quickly and efficiently.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-6">
+              <div className="text-5xl font-extrabold text-emerald-100">1</div>
+              <h3 className="mt-4 text-xl font-bold text-gray-900">Submit Your Enquiry</h3>
+              <p className="mt-2 text-gray-600">Reach out via phone, email, or our contact form with your requirements.</p>
+            </div>
+            <div className="p-6">
+              <div className="text-5xl font-extrabold text-emerald-100">2</div>
+              <h3 className="mt-4 text-xl font-bold text-gray-900">Receive a Custom Quote</h3>
+              <p className="mt-2 text-gray-600">Our team will review your needs and send you a tailored quote and product suggestions.</p>
+            </div>
+            <div className="p-6">
+              <div className="text-5xl font-extrabold text-emerald-100">3</div>
+              <h3 className="mt-4 text-xl font-bold text-gray-900">Finalize & Order</h3>
+              <p className="mt-2 text-gray-600">Once you're happy with the details, we'll finalize the order and arrange for delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Map Section */}
       <div className="bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:py-24">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Frequently Asked Questions</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">Everything you may want to know before placing your wholesale enquiry.</p>
-          </div>
-          <div className="mx-auto mt-12 max-w-4xl space-y-6">
-            <div className="rounded-2xl bg-white p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900">What is the minimum order quantity (MOQ)?</h3>
-              <p className="mt-2 text-lg text-gray-700">Our MOQs vary by product and category. We offer flexible options suitable for both small and large businesses.</p>
-            </div>
-            <div className="rounded-2xl bg-white p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900">Do you offer international shipping?</h3>
-              <p className="mt-2 text-lg text-gray-700">Yes, we ship globally. Shipping costs and delivery times depend on your location and order size.</p>
-            </div>
-            <div className="rounded-2xl bg-white p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900">Can I request samples?</h3>
-              <p className="mt-2 text-lg text-gray-700">Absolutely. Please mention your request in the enquiry form and our team will guide you through the sample process.</p>
-            </div>
+        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+          <h2 className="text-3xl font-extrabold text-gray-900">Find Us</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+            Our office is located with easy access. We welcome you for scheduled appointments.
+          </p>
+          <div className="mt-8 rounded-lg overflow-hidden shadow-xl">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.586638031195!2d-0.4194440842300185!3d51.48182417963095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876721ea5849df7%3A0x1945e8360773f853!2sJolyon%20House%2C%20Amberley%20Way%2C%20Hounslow%20TW4%206BH%2C%20UK!5e0!3m2!1sen!2sin!4v1620456112182!5m2!1sen!2sin" width="100%" height="450" style={{border:0}} allowFullScreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

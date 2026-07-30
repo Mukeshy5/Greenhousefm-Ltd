@@ -1,27 +1,4 @@
-import { useState } from "react";
-
 const ContectUs = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', form);
-    setSubmitted(true);
-  }
 
   return (
     <main className="bg-white">
@@ -87,61 +64,29 @@ const ContectUs = () => {
             </div>
           </div>
 
-          <div className="rounded-[2rem] bg-gray-50 p-8 shadow-lg ring-1 ring-gray-100">
-            <h2 className="text-3xl font-extrabold text-gray-900">Send Us a Message</h2>
-            {submitted ? (
-              <div className="mt-6 rounded-2xl bg-emerald-100 p-6 text-center text-lg font-semibold text-emerald-800">
-                Thank you for your message! We will get back to you shortly.
+          <div className="rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 shadow-lg">
+            <h2 className="text-3xl font-extrabold text-gray-900">Preferred Contact Options</h2>
+            <p className="mt-4 text-lg text-gray-600">Choose the most convenient way to reach us for support, orders, or partnerships.</p>
+
+            <div className="mt-8 space-y-4">
+              <div className="rounded-2xl bg-white p-4 shadow-sm">
+                <p className="font-semibold text-gray-900">📞 Call for urgent support</p>
+                <p className="mt-1 text-sm text-gray-600">Perfect for quick questions and time-sensitive requests.</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-                <div>
-                  <label htmlFor="name" className="sr-only">Your Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full rounded-md border-gray-300 px-4 py-3 text-lg focus:border-emerald-500 focus:ring-emerald-500"
-                    placeholder="Your Name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="sr-only">Your Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full rounded-md border-gray-300 px-4 py-3 text-lg focus:border-emerald-500 focus:ring-emerald-500"
-                    placeholder="Your Email"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="sr-only">Your Message</label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows="5"
-                    value={form.message}
-                    onChange={handleChange}
-                    className="w-full rounded-md border-gray-300 px-4 py-3 text-lg focus:border-emerald-500 focus:ring-emerald-500"
-                    placeholder="Tell us how we can help"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-emerald-600 px-6 py-3 text-lg font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                >
-                  Submit Inquiry
-                </button>
-              </form>
-            )}
+              <div className="rounded-2xl bg-white p-4 shadow-sm">
+                <p className="font-semibold text-gray-900">✉️ Email for quotations</p>
+                <p className="mt-1 text-sm text-gray-600">Best for bulk enquiries, product requests, and detailed follow-ups.</p>
+              </div>
+              <div className="rounded-2xl bg-white p-4 shadow-sm">
+                <p className="font-semibold text-gray-900">📍 Visit our office</p>
+                <p className="mt-1 text-sm text-gray-600">We welcome in-person meetings for trusted wholesale partnerships.</p>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-100/70 p-4 text-sm text-emerald-800">
+              <p className="font-semibold">Note</p>
+              <p className="mt-1">Please include your business name and product interest when contacting us so we can assist you faster.</p>
+            </div>
           </div>
         </div>
       </div>
