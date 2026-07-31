@@ -36,7 +36,7 @@ const ContectUs = () => {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xl text-white">✉</div>
                   <div>
                     <h3 className="font-bold text-gray-900">Email</h3>
-                    <p className="text-gray-700">info@greenhousefmltd.com</p>
+                    <p className="text-gray-700">sales@greenhousefmltd.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 rounded-2xl bg-emerald-50 p-4">

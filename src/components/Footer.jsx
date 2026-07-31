@@ -26,7 +26,7 @@ const Footer = () => {
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h4>
           <ul className="mt-4 space-y-2 text-sm text-gray-400">
             <li>07494625582</li>
-            <li>info@greenhousefmltd.com</li>
+            <li>sales@greenhousefmltd.com</li>
             <li>Jolyon House, Amberley Way, Cranford, Hounslow TW4 6BH</li>
           </ul>
         </div>
