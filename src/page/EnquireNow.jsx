@@ -40,7 +40,7 @@ const EnquireNow = () => {
             <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div className="text-4xl text-emerald-600 mb-4">✉️</div>
               <h3 className="text-xl font-bold mb-2">By Email</h3>
-              <p className="text-lg text-gray-700">info@greenhousefmltd.com</p>
+              <p className="text-lg text-gray-700">sales@greenhousefmltd.com</p>
               <p className="text-sm text-gray-500 mt-2">We reply within 24 hours</p>
             </div>
             <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
